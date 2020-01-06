@@ -14,10 +14,9 @@ cache:
   paths:
     - .m2/repository
 
-
 test:
   stage: test
-  image: python:3
+  image: openjdk:11-jdk
   script:
     - mvn $MAVEN_CLI_OPTS test
 
