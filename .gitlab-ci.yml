@@ -1,5 +1,6 @@
 stages:
   - test
+  - build
   - package branch
   - package release
   - deploy test
@@ -19,6 +20,15 @@ test:
   image: maven:3.6.3-jdk-11
   script:
     - mvn $MAVEN_CLI_OPTS test
+
+build:
+  stage: build
+  image: maven:3-jdk-11
+  script:
+    - mvn $MAVEN_CLI_OPTS package
+  artifacts:
+    paths:
+      - target/*.jar
 
 package branch:
   stage: package branch
