@@ -1,3 +1,4 @@
+# Dockerfile for building the ba-api container
 FROM openjdk:11-jdk
 COPY target/*.jar app.jar
 EXPOSE 8080
