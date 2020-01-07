@@ -4,6 +4,7 @@ kind: Deployment
 metadata:
   name: ba-api-cd
   namespace: default
+  fluxcd.io/automated: "true
 spec:
   replicas: 1
   selector:
