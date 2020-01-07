@@ -1,9 +1,6 @@
 package api;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Cat {
@@ -15,6 +12,9 @@ public class Cat {
     private String name;
     private Double weight;
     private String color;
+    @ManyToOne
+//    @JoinColumn
+    private Person person;
 
     public String getName() {
         return name;
@@ -38,5 +38,13 @@ public class Cat {
 
     public void setColor(String color) {
         this.color = color;
+    }
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
     }
 }
