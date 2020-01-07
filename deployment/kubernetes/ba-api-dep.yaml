@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ba-api-cd
+  namespace: default
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ba-api-cd
+    spec:
+      containers:
+        - name: ba-api-cd
+          image: registry.gitlab.com/mklug-git/ba1-spring:1.0.3
+          ports:
+            - containerPort: 8080
+              name: http
+              protocol: TCP
+      imagePullSecrets:
+        - name: gitlab-com
+        - name: gitlab-mklug
