@@ -23,6 +23,5 @@ spec:
             - containerPort: 8080
               name: http
               protocol: TCP
-#      imagePullSecrets:
-#        - name: gitlab-com
-#        - name: gitlab-mklug
+      imagePullSecrets:
+        - name: gitlab-com
