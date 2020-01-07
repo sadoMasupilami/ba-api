@@ -20,6 +20,8 @@ test:
   image: maven:3.6.3-jdk-11
   script:
     - mvn $MAVEN_CLI_OPTS test
+  except:
+    - flux-sync
 
 build:
   stage: build
@@ -29,6 +31,8 @@ build:
   artifacts:
     paths:
       - target/*.jar
+  except:
+    - flux-sync
 
 #package branch:
 #  stage: package branch
@@ -56,6 +60,7 @@ package release:
   except:
     - branches
     - triggers
+    - flux-sync
 
 #deploy test:
 #  stage: deploy test
