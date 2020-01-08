@@ -1,0 +1,28 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ba-mysql
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ba-mysql
+  template:
+    metadata:
+      labels:
+        app: ba-mysql
+    spec:
+      containers:
+      - name: ba-mysql
+        image: mysql:8.0.18
+        ports:
+        - containerPort: 3306
+          name: mysql
+          protocol: TCP
+      - env:
+          - name: MYSQL_DATABASE
+            value: "ba"
+          - name: MYSQL_ROOT_PASSWORD
+            value: "password"
