@@ -31,7 +31,11 @@ build:
   artifacts:
     paths:
       - target/*.jar
+  only:
+    - /^(\d+\.)?(\d+\.)?(\*|\d+)$/
   except:
+    - branches
+    - triggers
     - flux-sync
 
 #package branch:
