@@ -4,7 +4,7 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
   name: ba-api-cd
-  namespace: default
+  namespace: ba
 spec:
   rules:
     - host: ba-api.cloud.mklug.at

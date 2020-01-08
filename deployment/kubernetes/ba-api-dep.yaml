@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ba-api-cd
-  namespace: default
+  namespace: ba
   annotations:
     fluxcd.io/automated: "true"
 spec:
