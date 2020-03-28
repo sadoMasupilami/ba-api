@@ -15,5 +15,5 @@ spec:
               servicePort: 8080
   tls:
     - hosts:
-        - ba-api.cloud.mklug.at
+        - ba-keycloak.cloud.mklug.at
       secretName: tls-keycloak-api
