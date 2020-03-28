@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+  name: ba-keycloak-cd
+  namespace: ba
+spec:
+  rules:
+    - host: ba-keycloak.cloud.mklug.at
+      http:
+        paths:
+          - backend:
+              serviceName: ba-keycloak
+              servicePort: 8080
+  tls:
+    - hosts:
+        - ba-api.cloud.mklug.at
+      secretName: tls-keycloak-api
