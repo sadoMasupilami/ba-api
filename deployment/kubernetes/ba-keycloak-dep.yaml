@@ -36,3 +36,9 @@ spec:
           value: ba-test
         - name: PROXY_ADDRESS_FORWARDING
           value: "true"
+      volumes:
+      - configMap:
+          defaultMode: 256
+          name: keycloak-realm
+          optional: false
+        name: vol1
