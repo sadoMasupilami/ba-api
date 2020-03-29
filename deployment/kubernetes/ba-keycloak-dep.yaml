@@ -1,0 +1,38 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ba-keycloak
+  namespace: ba
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ba-keycloak
+  template:
+    metadata:
+      labels:
+        app: ba-keycloak
+    spec:
+      containers:
+      - name: ba-keycloak
+        image: jboss/keycloak:9.0.2
+        ports:
+        - containerPort: 8080
+          name: keycloak
+          protocol: TCP
+        env:
+        - name: DB_ADDR
+          value: ba-postgres
+        - name: DB_PASSWORD
+          value: password
+        - name: DB_USER
+          value: keycloak
+        - name: DB_VENDOR
+          value: postgres
+        - name: KEYCLOAK_PASSWORD
+          value: ba-test
+        - name: KEYCLOAK_USER
+          value: ba-test
+        - name: PROXY_ADDRESS_FORWARDING
+          value: "true"

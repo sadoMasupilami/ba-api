@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
-  name: ba-keycloak-cd
+  name: ba-keycloak
   namespace: ba
 spec:
   rules:
