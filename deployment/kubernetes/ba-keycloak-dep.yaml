@@ -41,7 +41,6 @@ spec:
           value: "true"
       volumes:
       - configMap:
-          defaultMode: 256
           name: keycloak-realm
           optional: false
         name: realm
