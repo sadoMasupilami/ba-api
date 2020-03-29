@@ -1,0 +1,30 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ba-postgres
+  namespace: ba
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ba-postgres
+  template:
+    metadata:
+      labels:
+        app: ba-postgres
+    spec:
+      containers:
+      - name: ba-mysql
+        image: postgres:12.2
+        ports:
+        - containerPort: 3306
+          name: mysql
+          protocol: TCP
+        env:
+        - name: POSTGRES_DB
+          value: "keycloak"
+        - name: POSTGRES_USER
+          value: "keycloak"
+        - name: POSTGRES_PASSWORD
+          value: "password"
