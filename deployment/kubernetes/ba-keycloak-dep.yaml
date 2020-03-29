@@ -39,6 +39,8 @@ spec:
           value: ba-test
         - name: PROXY_ADDRESS_FORWARDING
           value: "true"
+        - name: KEYCLOAK_IMPORT
+          value: "/tmp/realm"
       volumes:
       - configMap:
           name: keycloak-realm
