@@ -6,9 +6,11 @@
 variables:
   MAVEN_CACHE_FOLDER: $(Pipeline.Workspace)/.m2/repository
   MAVEN_OPTS: '-Dmaven.repo.local=$(MAVEN_CACHE_FOLDER) -Dhttps.protocols=TLSv1.2 -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=WARN -Dorg.slf4j.simpleLogger.showDateTime=true -Djava.awt.headless=true'
+  imageName: sadomasupilami/ba-api-azure
 
 trigger:
 - master
+- tags
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -52,3 +54,20 @@ steps:
     pathToPublish: 'target/gs-rest-service-0.1.0.jar'
     artifactName: jar
   displayName: publish jar file
+
+- task: Docker@2
+  displayName: Build docker image
+  inputs:
+    repository: $(imageName)
+    command: build
+    Dockerfile: Dockerfile
+
+- task: Docker@2
+  displayName: Push image
+  inputs:
+    containerRegistry: |
+      $(dockerHub)
+    repository: $(imageName)
+    command: push
+    tags: |
+      test1
