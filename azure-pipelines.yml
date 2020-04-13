@@ -49,6 +49,6 @@ steps:
 
 - task: PublishBuildArtifacts@1
   inputs:
-    pathToPublish: '$(Build.ArtifactStagingDirectory)/target/*.jar'
+    pathToPublish: '$(Build.ArtifactStagingDirectory)/target/gs-rest-service-0.1.0.jar'
     artifactName: jar
   displayName: publish jar file
