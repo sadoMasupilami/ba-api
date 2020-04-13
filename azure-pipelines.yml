@@ -49,12 +49,12 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'ls -la'
+    script: 'ls -la $(Build.ArtifactStagingDirectory)'
 
 
 - task: CmdLine@2
   inputs:
-    script: 'ls -la target/'
+    script: 'ls -la $(Build.ArtifactStagingDirectory)/target/'
 
 - task: PublishBuildArtifacts@1
   inputs:
