@@ -23,10 +23,6 @@ steps:
   displayName: Set the tag name as an environment variable
   condition: startsWith(variables['build.sourceBranch'], 'refs/tags/')
 
-- task: CmdLine@2
-  inputs:
-    script: 'echo $(Build.SourceBranch)'
-
 - task: Cache@2
   inputs:
     key: 'maven | "$(Agent.OS)" | **/pom.xml'
