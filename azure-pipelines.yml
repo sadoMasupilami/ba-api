@@ -47,6 +47,15 @@ steps:
     goals: 'package'
   displayName: mvn package
 
+- task: CmdLine@2
+  inputs:
+    script: 'ls -la'
+
+
+- task: CmdLine@2
+  inputs:
+    script: 'ls -la target/'
+
 - task: PublishBuildArtifacts@1
   inputs:
     pathToPublish: '$(Build.ArtifactStagingDirectory)/target/gs-rest-service-0.1.0.jar'
