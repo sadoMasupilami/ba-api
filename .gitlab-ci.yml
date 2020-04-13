@@ -22,6 +22,7 @@ test:
     - mvn $MAVEN_CLI_OPTS test
   except:
     - flux-sync
+    - flux-write-check
 
 build:
   stage: build
@@ -35,8 +36,6 @@ build:
     - master
     - tags
   except:
-    - branches
-    - triggers
     - flux-sync
     - flux-write-check
 
@@ -65,8 +64,6 @@ package release:
     - master
     - tags
   except:
-    - branches
-    - triggers
     - flux-sync
     - flux-write-check
 
