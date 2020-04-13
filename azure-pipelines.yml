@@ -47,17 +47,8 @@ steps:
     goals: 'package'
   displayName: mvn package
 
-- task: CmdLine@2
-  inputs:
-    script: 'ls -la $(Build.ArtifactStagingDirectory)'
-
-
-- task: CmdLine@2
-  inputs:
-    script: 'ls -la $(Build.ArtifactStagingDirectory)/target/'
-
 - task: PublishBuildArtifacts@1
   inputs:
-    pathToPublish: '$(Build.ArtifactStagingDirectory)/target/gs-rest-service-0.1.0.jar'
+    pathToPublish: 'target/gs-rest-service-0.1.0.jar'
     artifactName: jar
   displayName: publish jar file
