@@ -9,6 +9,9 @@ variables:
   imageName: sadomasupilami/ba-api-azure
 
 trigger:
+  branches:
+    include:
+      - master
   tags:
     include:
     - '*'
