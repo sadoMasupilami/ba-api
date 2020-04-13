@@ -32,7 +32,8 @@ build:
     paths:
       - target/*.jar
   only:
-    - /^(\d+\.)?(\d+\.)?(\*|\d+)$/
+    - master
+    - tags
   except:
     - branches
     - triggers
