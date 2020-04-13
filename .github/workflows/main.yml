@@ -26,7 +26,7 @@ jobs:
       run: mvn $MAVEN_CLI_OPTS package
   
     - name: test
-      run: ls -la
+      run: ls -la target/
 
     - name: upload jar file
       run: echo "::set-output name=file::$(ls target/*.jar)"
