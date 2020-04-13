@@ -37,6 +37,7 @@ build:
     - branches
     - triggers
     - flux-sync
+    - flux-write-check
 
 #package branch:
 #  stage: package branch
@@ -65,6 +66,7 @@ package release:
     - branches
     - triggers
     - flux-sync
+    - flux-write-check
 
 #deploy test:
 #  stage: deploy test
