@@ -29,7 +29,7 @@ jobs:
       run: ls -la target/
 
     - name: upload jar file
-      run: echo "::set-output name=file::$(ls target/*.jar)"
-    - uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v2-preview
       with:
-        path: ${{ steps.getfilename.outputs.file }}
+        path: target/*.jar
+        name: jar
