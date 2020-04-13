@@ -9,7 +9,9 @@ variables:
   imageName: sadomasupilami/ba-api-azure
 
 trigger:
-- master
+  tags:
+    include:
+    - '*'
 
 pool:
   vmImage: 'ubuntu-latest'
