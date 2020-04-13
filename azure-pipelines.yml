@@ -11,10 +11,8 @@ variables:
 trigger:
   branches:
     include:
-      - master
-  tags:
-    include:
-    - '*'
+    - master
+    - refs/tags/*
 
 pool:
   vmImage: 'ubuntu-latest'
