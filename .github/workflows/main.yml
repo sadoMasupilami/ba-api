@@ -23,7 +23,7 @@ jobs:
       run: mvn $MAVEN_CLI_OPTS test
     
     - name: maven build
-      run: mvn $MAVEN_CLI_OPTS test
+      run: mvn $MAVEN_CLI_OPTS package
   
     - name: test
       run: ls -la
