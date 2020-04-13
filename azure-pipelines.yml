@@ -22,6 +22,7 @@ steps:
       maven
     path: $(MAVEN_CACHE_FOLDER)
   displayName: Cache Maven local repo
+
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
@@ -31,4 +32,5 @@ steps:
     jdkArchitectureOption: 'x64'
     publishJUnitResults: false
     testResultsFiles: '**/TEST-*.xml'
-    goals: 'package'
+    goals: 'test'
+  displayName: mvn test
