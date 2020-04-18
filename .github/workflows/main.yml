@@ -40,11 +40,12 @@ jobs:
     - name: maven build
       run: mvn $MAVEN_CLI_OPTS package
 
-#    - name: upload jar file
-#      uses: actions/upload-artifact@v2-preview
-#      with:
-#        path: target/*.jar
-#        name: jar
+    - name: upload jar file
+      if: contains(github.ref, 'refs/tags/')
+      uses: actions/upload-artifact@v2-preview
+      with:
+        path: target/*.jar
+        name: jar
 
     - name: Docker login
       if: contains(github.ref, 'refs/tags/')
