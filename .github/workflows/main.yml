@@ -60,7 +60,7 @@ jobs:
       env:
         RELEASE_VERSION: ${{ steps.vars.outputs.tag }}
       if: contains(github.ref, 'refs/tags/')
-      run: docker push ${{ secrets.DOCKER_USER }}/ba-api-github:$RELEASE_VERSION
+      run: docker push ${{ secrets.DOCKER_USERNAME }}/ba-api-github:$RELEASE_VERSION
 
 
 # https://github.com/HurricanKai/Publish-Docker-Github-Action
