@@ -8,8 +8,8 @@ env:
 
 on:
   push:
-    tags:
-      - '*'
+    branches:
+      - master
 
 jobs:
   all:
@@ -38,8 +38,28 @@ jobs:
     - name: maven build
       run: mvn $MAVEN_CLI_OPTS package
 
-    - name: upload jar file
-      uses: actions/upload-artifact@v2-preview
-      with:
-        path: target/*.jar
-        name: jar
+#    - name: upload jar file
+#      uses: actions/upload-artifact@v2-preview
+#      with:
+#        path: target/*.jar
+#        name: jar
+
+    - name: Docker login
+      if: contains(github.ref, 'refs/tags/')
+      run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+
+    - name: build image
+      env:
+        RELEASE_VERSION: ${{ steps.vars.outputs.tag }}
+      if: contains(github.ref, 'refs/tags/')
+      run: docker build -t sadomasupilami/ba-api-github:$RELEASE_VERSION .
+
+    - name: push image
+      env:
+        RELEASE_VERSION: ${{ steps.vars.outputs.tag }}
+      if: contains(github.ref, 'refs/tags/')
+      run: docker push ${{ secrets.DOCKER_USER }}/ba-api-github:$RELEASE_VERSION
+
+
+# https://github.com/HurricanKai/Publish-Docker-Github-Action
+# could also be used
