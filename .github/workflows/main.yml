@@ -13,7 +13,7 @@ on:
     branches: [ master ]
 
 jobs:
-  test:
+  all:
     runs-on: ubuntu-latest
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -24,9 +24,6 @@ jobs:
     
     - name: maven build
       run: mvn $MAVEN_CLI_OPTS package
-  
-    - name: test
-      run: ls -la target/
 
     - name: upload jar file
       uses: actions/upload-artifact@v2-preview
