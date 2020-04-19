@@ -24,12 +24,11 @@ jobs:
       id: vars
       run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
 
-    - name: Check output
+    - name: Check RELEASE_VERSION
       env:
         RELEASE_VERSION: ${{ steps.vars.outputs.tag }}
       run: |
         echo $RELEASE_VERSION
-        echo ${{ steps.vars.outputs.tag }}
 
     - name: maven test
       run: mvn $MAVEN_CLI_OPTS test
