@@ -3,14 +3,14 @@
 name: CI
 
 env:
-  MAVEN_OPTS: "-Dhttps.protocols=TLSv1.2 -Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=WARN -Dorg.slf4j.simpleLogger.showDateTime=true -Djava.awt.headless=true"
+  MAVEN_OPTS: "-Dhttps.protocols=TLSv1.2 -Dorg.slf4j.simpleLogger.showDateTime=true -Djava.awt.headless=true"
   MAVEN_CLI_OPTS: "--batch-mode --errors --fail-at-end --show-version -DinstallAtEnd=true -DdeployAtEnd=true"
 
 on:
   push:
     branches:
       - master
-    tags: 
+    tags:
       - '*'
 
 jobs:
@@ -32,7 +32,7 @@ jobs:
 
     - name: maven test
       run: mvn $MAVEN_CLI_OPTS test
-    
+
     - name: maven build
       run: mvn $MAVEN_CLI_OPTS package
 
