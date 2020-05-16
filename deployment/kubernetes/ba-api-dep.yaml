@@ -24,4 +24,4 @@ spec:
           name: http
           protocol: TCP
       imagePullSecrets:
-      - name: gitlab-com
+      - name: gitlab
