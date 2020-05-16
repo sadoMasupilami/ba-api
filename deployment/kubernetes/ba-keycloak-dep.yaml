@@ -18,8 +18,9 @@ spec:
       - name: ba-keycloak
         image: jboss/keycloak:9.0.2
         volumeMounts:
-          - mountPath: /tmp
+          - mountPath: /tmp/realm
             name: realm
+            subPath: realm
         ports:
         - containerPort: 8080
           name: keycloak
