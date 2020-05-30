@@ -28,4 +28,9 @@ public class GreetingControllerTests {
 		}
 		Assert.assertTrue(true);
 	}
+
+	@Test
+	public void failingTest() {
+		Assert.assertTrue(false);
+	}
 }
