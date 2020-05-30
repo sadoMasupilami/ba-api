@@ -29,8 +29,8 @@ public class GreetingControllerTests {
 		Assert.assertTrue(true);
 	}
 
-//	@Test
-//	public void failingTest() {
-//		Assert.assertTrue(false);
-//	}
+	@Test
+	public void failingTest() {
+		Assert.fail();
+	}
 }
