@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: ba-api-cd
-        image: registry.gitlab.com/mklug-git/ba1-spring:1.0.33
+        image: registry.gitlab.com/mklug-git/ba1-spring:35316309-ecc0-42fe-8876-7ddfc68748e7
         ports:
         - containerPort: 8080
           name: http
