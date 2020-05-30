@@ -30,6 +30,10 @@ jobs:
 
     - name: maven test
       run: mvn $MAVEN_CLI_OPTS test
+    - uses: ashley-taylor/junit-report-annotations-action@v1.1
+      if: always()
+      with:
+        access-token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: maven build
       run: mvn $MAVEN_CLI_OPTS package
