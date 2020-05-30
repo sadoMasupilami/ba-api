@@ -19,6 +19,11 @@ test:
   except:
     - flux-sync
     - flux-write-check
+  artifacts:
+    reports:
+      junit:
+        - target/surefire-reports/TEST-*.xml
+        - target/failsafe-reports/TEST-*.xml
 
 build:
   stage: build
